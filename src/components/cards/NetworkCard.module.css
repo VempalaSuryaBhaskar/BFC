@@ -1,0 +1,75 @@
+.card {
+  position: relative;
+  height: 100%;
+  padding: 26px 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  transition:
+    border-color var(--dur),
+    color var(--dur);
+}
+
+/* small node dot, echoing the network map */
+.icon::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+
+.card:hover .icon {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  color: var(--fg-subtle);
+}
+
+.title {
+  font-size: 1.12rem;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+
+.text {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}

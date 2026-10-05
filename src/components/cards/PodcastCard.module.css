@@ -1,0 +1,152 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.thumb :global(svg) {
+  transition: transform 1.2s var(--ease-premium);
+}
+
+.card:hover .thumb > svg:first-child,
+.card:hover .thumb img {
+  transform: scale(1.06);
+}
+
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  padding-left: 3px;
+  border-radius: 50%;
+  background: var(--c-orange-500);
+  color: var(--c-ink-950);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover .play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  padding: 22px 24px 24px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+
+.ep {
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+.sep {
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 1.22;
+  color: var(--fg);
+}
+
+.title a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur) var(--ease-out);
+}
+
+.title a:hover {
+  background-size: 100% 1px;
+}
+
+.guest {
+  display: grid;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+
+.guestName {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.guestRole {
+  color: var(--fg-subtle);
+}
+
+.desc {
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* compact */
+.compact .body {
+  padding: 18px 20px 20px;
+  gap: 10px;
+}
+
+.compact .title {
+  font-size: 1.08rem;
+}

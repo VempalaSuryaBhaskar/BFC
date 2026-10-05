@@ -1,0 +1,219 @@
+/* ---- Principles ---- */
+
+.principles {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 16px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.principleNum {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-text);
+  padding-top: 3px;
+}
+
+.principleTitle {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.principleText {
+  color: var(--fg-muted);
+  font-size: 0.97rem;
+}
+
+/* ---- Audience band ---- */
+
+.audience {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+}
+
+.audienceLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+
+.audienceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.audienceList li {
+  padding: 8px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--c-white);
+}
+
+.helpSection {
+  padding-top: clamp(48px, 5vw, 80px);
+}
+
+/* ---- "Something else" card ---- */
+
+.otherCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  min-height: 200px;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--c-ink-900);
+  color: var(--c-paper-50);
+  transition:
+    transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.otherCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.otherLabel {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.otherText {
+  color: #a9afb6;
+  font-size: 0.9rem;
+}
+
+.otherCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--c-orange-500);
+}
+
+.disclaimer {
+  margin-top: 28px;
+}
+
+.disclaimer svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+/* ---- FAQ ---- */
+
+.faq {
+  border-top: 1px solid var(--line-strong);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqQ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: var(--fg);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQ::-webkit-details-marker {
+  display: none;
+}
+
+.faqIcon {
+  flex: none;
+  color: var(--accent-text);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.faqItem[open] .faqIcon {
+  transform: rotate(45deg);
+}
+
+.faqA {
+  padding: 0 48px 24px 0;
+  color: var(--fg-muted);
+}
+
+/* ---- Inquiry ---- */
+
+.next {
+  margin-top: 40px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--c-white);
+}
+
+.nextTitle {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  margin-bottom: 16px;
+}
+
+.nextList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.nextList li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+
+.nextList span {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-text);
+  padding-top: 2px;
+}
+
+.alt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+}
+
+.alt a {
+  color: var(--fg);
+  text-decoration: underline;
+}

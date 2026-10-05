@@ -1,0 +1,138 @@
+.hero.hero {
+  padding-bottom: clamp(48px, 5vw, 72px);
+}
+
+.hero.hero h1 {
+  max-width: 20ch;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+}
+
+.meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta svg {
+  color: var(--accent);
+}
+
+.topic {
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.playerSection {
+  padding-block: clamp(40px, 5vw, 72px);
+}
+
+.player {
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+.playerActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.highlights {
+  margin-top: 40px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--c-paper-50);
+}
+
+.highlightsTitle {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.highlights li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  color: var(--fg);
+}
+
+.highlights li + li {
+  border-top: 1px solid var(--line);
+}
+
+.highlights svg {
+  flex: none;
+  margin-top: 4px;
+  color: var(--accent-text);
+}
+
+.guest {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--c-paper-50);
+}
+
+.guestMedia {
+  max-height: 340px;
+  overflow: hidden;
+}
+
+.guestBody {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: 24px;
+}
+
+.guestLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.guestName {
+  font-size: 1.4rem;
+}
+
+.guestRole {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.guestBio {
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+}
+
+.back {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+.back span {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

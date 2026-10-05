@@ -1,0 +1,129 @@
+.option {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(28px, 3vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--c-paper-50);
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.option:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.optionIcon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 32px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--fg);
+  background: var(--c-white);
+}
+
+.optionEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 10px;
+}
+
+.optionTitle {
+  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.optionText {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.optionBtn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.details {
+  display: grid;
+  gap: 18px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.detail {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.detailIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--fg);
+}
+
+.detailLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  margin-bottom: 2px;
+}
+
+.detailValue,
+.detail a {
+  font-weight: 600;
+  color: var(--fg);
+  word-break: break-word;
+}
+
+.detail a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  background: var(--c-white);
+  transition: border-color var(--dur-fast);
+}
+
+.social a:hover {
+  border-color: var(--fg);
+}

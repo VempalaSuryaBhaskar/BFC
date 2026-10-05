@@ -1,0 +1,33 @@
+.logo {
+  --logo-size: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.mark {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  flex: none;
+}
+
+.word {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: calc(var(--logo-size) * 0.86);
+  letter-spacing: 0.06em;
+  transform: translateY(1px);
+}
+
+.sm {
+  --logo-size: 22px;
+  gap: 10px;
+}
+
+.lg {
+  --logo-size: 40px;
+  gap: 16px;
+}

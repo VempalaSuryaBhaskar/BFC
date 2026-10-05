@@ -1,0 +1,50 @@
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--c-ink-800);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--art-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--art-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center;
+}
+
+.figure {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 78%;
+  transform: translateX(-50%);
+  transition: transform 1.2s var(--ease-premium);
+}
+
+/* architectural crop marks */
+.crop {
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--art-accent), var(--art-accent)) top left / 14px 1.5px no-repeat,
+    linear-gradient(var(--art-accent), var(--art-accent)) top left / 1.5px 14px no-repeat,
+    linear-gradient(var(--art-line), var(--art-line)) bottom right / 14px 1.5px no-repeat,
+    linear-gradient(var(--art-line), var(--art-line)) bottom right / 1.5px 14px no-repeat;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}

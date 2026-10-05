@@ -1,0 +1,156 @@
+/* ---- Hero ---- */
+
+.heroLine {
+  display: block;
+}
+
+.dot {
+  color: var(--c-orange-500);
+}
+
+.verticals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.vertical {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  padding: 26px 28px 30px 0;
+  transition: background-color var(--dur) var(--ease-out);
+}
+
+.verticals li + li .vertical {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+
+.verticalIndex {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  padding-top: 4px;
+}
+
+.verticalBody {
+  display: grid;
+  gap: 4px;
+  flex: 1;
+}
+
+.verticalName {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--fg);
+}
+
+.verticalLine {
+  font-size: 0.95rem;
+  color: var(--fg-muted);
+}
+
+.verticalIcon {
+  flex: none;
+  color: var(--fg-subtle);
+  transition:
+    color var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.vertical:hover .verticalIcon {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.vertical:hover .verticalName {
+  color: #fff;
+}
+
+/* ---- Consulting tagline ---- */
+
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--fg);
+}
+
+.taglineMark {
+  width: 28px;
+  height: 2px;
+  flex: none;
+  background: var(--accent);
+}
+
+/* ---- Talks ---- */
+
+.talksHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: clamp(40px, 4vw, 64px);
+}
+
+.talksTitle {
+  font-size: clamp(3rem, 2rem + 4.5vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.talksSub {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fg);
+  max-width: 22ch;
+}
+
+.talksAside {
+  display: grid;
+  gap: 28px;
+  padding-bottom: 8px;
+}
+
+.talksActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .talksHead {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .verticals {
+    grid-template-columns: 1fr;
+  }
+
+  .vertical {
+    padding: 20px 0;
+  }
+
+  .verticals li + li .vertical {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

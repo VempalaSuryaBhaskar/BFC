@@ -1,0 +1,85 @@
+.svg {
+  display: block;
+  overflow: visible;
+}
+
+.structure,
+.annotations,
+.labels {
+  animation: appear 1.6s var(--ease-premium) both;
+}
+
+.annotations,
+.labels {
+  animation-delay: 0.3s;
+}
+
+.labels {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.load {
+  transform-box: view-box;
+  transform-origin: 400px 128px;
+  animation: sway 7s ease-in-out infinite;
+}
+
+.network {
+  animation: appear 1.4s var(--ease-premium) 0.6s both;
+}
+
+.edge {
+  stroke: var(--c-orange-500);
+  stroke-width: 1.1;
+  stroke-opacity: 0.6;
+  stroke-dasharray: 4 6;
+  animation: flow 2.4s linear infinite;
+}
+
+.node {
+  fill: var(--c-orange-500);
+}
+
+.ring {
+  fill: none;
+  stroke: var(--c-orange-500);
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 3.5s var(--ease-out) infinite;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-0.8deg);
+  }
+  50% {
+    transform: rotate(0.8deg);
+  }
+}

@@ -1,0 +1,278 @@
+.wrap {
+  --map-line: color-mix(in srgb, var(--fg) 14%, transparent);
+  --map-line-faint: color-mix(in srgb, var(--fg) 7%, transparent);
+  --map-node-bg: var(--surface);
+  display: grid;
+  gap: 28px;
+}
+
+.map {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
+  aspect-ratio: 1000 / 640;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orbit {
+  fill: none;
+  stroke: var(--map-line);
+  stroke-dasharray: 2 6;
+}
+
+.orbitInner {
+  fill: none;
+  stroke: var(--map-line-faint);
+}
+
+.mesh {
+  stroke: var(--map-line);
+  stroke-width: 1;
+}
+
+.meshFaint {
+  stroke: var(--map-line-faint);
+  stroke-width: 1;
+}
+
+.satellite line {
+  stroke: var(--map-line);
+  transition: stroke var(--dur) var(--ease-out);
+}
+
+.satellite circle {
+  fill: var(--bg);
+  stroke: color-mix(in srgb, var(--fg) 35%, transparent);
+  transition:
+    fill var(--dur),
+    stroke var(--dur);
+}
+
+.satelliteActive line {
+  stroke: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.satelliteActive circle {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.spoke {
+  stroke: color-mix(in srgb, var(--accent) 45%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 3 7;
+  animation: flow 1.8s linear infinite;
+  transition:
+    stroke var(--dur) var(--ease-out),
+    stroke-width var(--dur) var(--ease-out);
+}
+
+.spokeActive {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+.hub {
+  fill: var(--c-ink-900);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.pulse {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 3.2s var(--ease-out) infinite;
+}
+
+/* ---- HTML overlays ---- */
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transform: translate(-50%, -50%);
+  color: var(--c-paper-50);
+  pointer-events: none;
+}
+
+.centerMark {
+  width: clamp(16px, 2.6vw, 26px);
+  height: clamp(16px, 2.6vw, 26px);
+}
+
+.centerWord {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(0.8rem, 1.8vw, 1.15rem);
+  letter-spacing: 0.08em;
+}
+
+.node {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--map-node-bg);
+  color: var(--fg);
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  transition:
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.node:hover,
+.nodeActive {
+  z-index: 2;
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--accent) 55%, transparent);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.nodeIcon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--fg);
+  transition:
+    background-color var(--dur),
+    color var(--dur);
+}
+
+.nodeActive .nodeIcon,
+.node:hover .nodeIcon {
+  background: var(--accent);
+  color: var(--c-ink-950);
+}
+
+/* ---- Detail panel ---- */
+
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 620px;
+  min-height: 92px;
+  margin-inline: auto;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.panelIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--accent-text);
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+
+.panelText {
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .node {
+    font-size: 0.76rem;
+    padding: 4px 10px 4px 4px;
+    gap: 6px;
+  }
+
+  .nodeIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .nodeIcon svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* Small screens: icon-only nodes; the panel carries the label */
+@media (max-width: 720px) {
+  .node {
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .nodeLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .nodeIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .satellite {
+    display: none;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+}

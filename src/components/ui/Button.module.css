@@ -1,0 +1,148 @@
+.button {
+  --btn-h: 50px;
+  --btn-px: 24px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  flex: none;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.button:hover .icon:last-child {
+  transform: translateX(3px);
+}
+
+/* ---- Sizes ---- */
+
+.sm {
+  --btn-h: 40px;
+  --btn-px: 16px;
+  font-size: 0.86rem;
+  gap: 8px;
+}
+
+.md {
+  --btn-h: 50px;
+}
+
+.lg {
+  --btn-h: 58px;
+  --btn-px: 30px;
+  font-size: 1rem;
+}
+
+.block {
+  width: 100%;
+}
+
+/* ---- Variants ---- */
+
+.primary {
+  background: var(--c-orange-500);
+  color: var(--c-ink-950);
+}
+
+.primary:hover {
+  background: var(--c-orange-400);
+  box-shadow: 0 10px 24px -12px rgba(240, 106, 29, 0.8);
+}
+
+.dark {
+  background: var(--c-ink-900);
+  color: var(--c-paper-50);
+}
+
+.dark:hover {
+  background: var(--c-ink-700);
+}
+
+.light {
+  background: var(--c-paper-50);
+  color: var(--c-ink-950);
+}
+
+.light:hover {
+  background: var(--c-white);
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--fg);
+}
+
+.outline:hover {
+  border-color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+}
+
+.ghost {
+  --btn-px: 0;
+  height: auto;
+  padding-block: 6px;
+  background: transparent;
+  color: var(--fg);
+  border-radius: 0;
+}
+
+.ghost .label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.35);
+  transform-origin: left;
+  opacity: 0.5;
+  transition:
+    transform var(--dur) var(--ease-out),
+    opacity var(--dur) var(--ease-out);
+}
+
+.ghost:hover .label::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.ghost .icon {
+  color: var(--accent-text);
+}

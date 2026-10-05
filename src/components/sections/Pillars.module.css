@@ -1,0 +1,85 @@
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+}
+
+.pillar {
+  position: relative;
+  padding: 36px clamp(20px, 3vw, 44px) 12px;
+}
+
+.pillar:first-child {
+  padding-left: 0;
+}
+
+.pillar + .pillar {
+  border-left: 1px solid var(--line);
+}
+
+.pillar::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 56px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.pillar + .pillar::before {
+  left: clamp(20px, 3vw, 44px);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg-subtle);
+}
+
+.icon {
+  color: var(--fg);
+}
+
+.title {
+  font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.6rem);
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+
+.text {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar,
+  .pillar:first-child {
+    padding: 32px 0 36px;
+  }
+
+  .pillar + .pillar {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .pillar + .pillar::before {
+    left: 0;
+  }
+}

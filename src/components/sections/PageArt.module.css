@@ -1,0 +1,100 @@
+.svg {
+  overflow: visible;
+  animation: appear 1.4s var(--ease-premium) 0.2s both;
+}
+
+.line {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+}
+
+.faint {
+  stroke: rgba(255, 255, 255, 0.09);
+  stroke-width: 1;
+}
+
+.joint {
+  fill: var(--c-ink-950);
+  stroke: rgba(255, 255, 255, 0.35);
+}
+
+.dot {
+  fill: var(--c-ink-800);
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
+.accent {
+  stroke: var(--c-orange-500);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.accentFill {
+  fill: var(--c-orange-500);
+}
+
+.flow {
+  stroke-dasharray: 5 6;
+  animation: flow 2.2s linear infinite;
+}
+
+.ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ping 3s var(--ease-out) infinite;
+}
+
+.label {
+  fill: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.bar,
+.barHot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: level 2.8s ease-in-out infinite;
+}
+
+.bar {
+  fill: rgba(255, 255, 255, 0.22);
+}
+
+.barHot {
+  fill: var(--c-orange-500);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes level {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.72);
+  }
+}

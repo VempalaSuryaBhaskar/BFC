@@ -1,0 +1,85 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.media {
+  overflow: hidden;
+}
+
+.card:hover .media svg {
+  transform: translateX(-50%) scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 24px;
+}
+
+.name {
+  font-size: 1.3rem;
+  color: var(--fg);
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.bg {
+  font-size: 0.93rem;
+  color: var(--fg-muted);
+  margin-top: 4px;
+}
+
+.linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--fg);
+  transition:
+    border-color var(--dur-fast),
+    background-color var(--dur-fast);
+}
+
+a.linkedin:hover {
+  border-color: var(--fg);
+}
+
+.linkedin[aria-disabled='true'] {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.pending {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--fg-subtle);
+}

@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100%;
+  padding: clamp(26px, 3vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.icon {
+  color: var(--accent);
+}
+
+.quote {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 38%, var(--line-strong) 0 26%, transparent 27%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, var(--line-strong) 0 98%, transparent 100%),
+    var(--surface-2);
+}
+
+.name {
+  display: block;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.role {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--fg-subtle);
+}
